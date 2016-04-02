@@ -8,6 +8,7 @@ public class Rectangle {
 	
 	/** The p2. */
 	private Point p1, p2;
+	private Double xLength, yLength;
 	
 	/**
 	 * Instantiates a new rectangle.
