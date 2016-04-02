@@ -54,7 +54,7 @@ public class FibonacciTest {
 	 * Runs various equality tests against the Fibonacci class
 	 */
 	public void testFibonacciB() {	
-		assertEquals("1", 0, fibonacci.fibonacci(1));
+		assertEquals("1", 1, fibonacci.fibonacci(1));
 	}
 	
 	@Test 
@@ -70,7 +70,7 @@ public class FibonacciTest {
 	 * Runs various equality tests against the Fibonacci class
 	 */
 	public void testFibonacciD() {	
-		assertEquals("3", 0, fibonacci.fibonacci(3));
+		assertEquals("3", 2, fibonacci.fibonacci(3));
 	}
 	
 	@Test 
@@ -86,7 +86,7 @@ public class FibonacciTest {
 	 * Runs various equality tests against the Fibonacci class
 	 */
 	public void testFibonacciF() {	
-		assertEquals("5", 0, fibonacci.fibonacci(5));
+		assertEquals("5", 5, fibonacci.fibonacci(5));
 	}
 	
 	@Test 
@@ -102,6 +102,6 @@ public class FibonacciTest {
 	 * Runs various equality tests against the Fibonacci class
 	 */
 	public void testFibonacciH() {	
-		assertEquals("7", 0, fibonacci.fibonacci(7));
+		assertEquals("7", 13, fibonacci.fibonacci(7));
 	}
 }
