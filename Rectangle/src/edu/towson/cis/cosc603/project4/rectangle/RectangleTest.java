@@ -15,7 +15,8 @@ import org.junit.Test;
 public class RectangleTest {
 	
 	/**  Declaring necessary test objects for {@link Rectangle}. */
-	static Rectangle rect1, rect2;
+	static Rectangle rect1;
+	static Rectangle rect2;
 
 	/**
 	 * Initializes the necessary test objects for the test cases to use.
@@ -30,19 +31,35 @@ public class RectangleTest {
 	}
 
 	/**
+	 * Test for the testGetP1() method of the {@link Rectangle} class.
+	 */
+	@Test
+	public void testGetP1() {
+//        System.out.println("testGetP1");
+		assertEquals(2.0, rect1.getP1().x,0.001);
+		assertEquals(2.0, rect1.getP1().y,0.001);
+	}
+
+	/**
+	 * Test for the testGetP2() method of the {@link Rectangle} class.
+	 */
+	@Test
+	public void testGetP2() {
+//        System.out.println("testGetP2");
+		assertEquals(4.0, rect1.getP2().x,0.001);
+		assertEquals(7.0, rect1.getP2().y,0.001);
+	}
+
+	/**
 	 * Test for the getArea() method of the {@link Rectangle} class.
 	 */
 	@Test
 	public void testGetArea() {
 //        System.out.println("testGetArea");
-		assertEquals(2.0, rect1.getP1().x,0.001);
-		assertEquals(2.0, rect1.getP1().y,0.001);
-		assertEquals(4.0, rect1.getP2().x,0.001);
-		assertEquals(7.0, rect1.getP2().y,0.001);
 		assertEquals(10.0, rect1.getArea(),0.001);
 		assertEquals(6.0, rect2.getArea(),0.001);
 	}
-
+	
 	/**
 	 * Test for the getDiagonal() method of the {@link Rectangle} class.
 	 */
