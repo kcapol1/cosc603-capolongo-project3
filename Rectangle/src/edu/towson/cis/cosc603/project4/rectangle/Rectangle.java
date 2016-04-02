@@ -19,6 +19,8 @@ public class Rectangle {
 	Rectangle(Point p1, Point p2) {
 		this.p1 = p1;
 		this.p2 = p2;
+		xLength = Math.abs(p2.x - p1.x);
+		yLength = Math.abs(p2.y - p1.y);
 	}
 	
 	/**
