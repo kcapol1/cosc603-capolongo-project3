@@ -8,6 +8,8 @@ public class Rectangle {
 	
 	/** The p2. */
 	private Point p1, p2;
+	
+	/** The y length. */
 	private Double xLength, yLength;
 	
 	
@@ -22,6 +24,9 @@ public class Rectangle {
 		this.setP2(p2);
 	}
 	
+	/**
+	 * Caclulate lengths.
+	 */
 	private void caclulateLengths() {
 		if((p1!=null) && (p2!=null)) {
 			xLength = Math.abs(p2.x - p1.x);
@@ -30,6 +35,8 @@ public class Rectangle {
 	}
 		
 	/**
+	 * Gets the p1.
+	 *
 	 * @return the p1
 	 */
 	public Point getP1() {
@@ -37,7 +44,9 @@ public class Rectangle {
 	}
 
 	/**
-	 * @param p1 the p1 to set
+	 * Sets the p1.
+	 *
+	 * @param p the new p1
 	 */
 	public void setP1(Point p) {
 		this.p1 = p;
@@ -45,6 +54,8 @@ public class Rectangle {
 	}
 
 	/**
+	 * Gets the p2.
+	 *
 	 * @return the p2
 	 */
 	public Point getP2() {
@@ -52,7 +63,9 @@ public class Rectangle {
 	}
 
 	/**
-	 * @param p2 the p2 to set
+	 * Sets the p2.
+	 *
+	 * @param p the new p2
 	 */
 	public void setP2(Point p) {
 		this.p2 = p;

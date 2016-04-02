@@ -1,5 +1,6 @@
 package edu.towson.cis.cosc603.project4.rectangle;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Point Class.
  */

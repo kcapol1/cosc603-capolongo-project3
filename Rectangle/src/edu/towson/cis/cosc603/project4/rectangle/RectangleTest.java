@@ -8,12 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+// TODO: Auto-generated Javadoc
 /**
  * The unit test Class for Rectangle.
  */
 public class RectangleTest {
 	
-	/** Declaring necessary test objects for {@link Rectangle} */
+	/**  Declaring necessary test objects for {@link Rectangle}. */
 	static Rectangle rect1, rect2;
 
 	/**
