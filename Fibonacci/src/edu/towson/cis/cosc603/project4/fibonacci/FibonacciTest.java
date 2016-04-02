@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 
+// TODO: Auto-generated Javadoc
 /**
  * Unit tests for {@link Fibonacci}.
  * 
@@ -17,6 +18,9 @@ public class FibonacciTest {
 	/** The fibonacci test object. */
 	private Fibonacci fibonacci;
 		
+	/**
+	 * Sets the up.
+	 */
 	@Before 
 	/**
 	 * The setUp method that creates the necessary test objects.
@@ -25,6 +29,9 @@ public class FibonacciTest {
 		fibonacci = new Fibonacci();
 	}
 	
+	/**
+	 * Test fibonacci.
+	 */
 	@Test 
 	/**
 	 * Runs various equality tests against the Fibonacci class
