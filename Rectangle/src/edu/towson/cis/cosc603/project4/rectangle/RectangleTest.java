@@ -34,6 +34,10 @@ public class RectangleTest {
 	@Test
 	public void testGetArea() {
 //        System.out.println("testGetArea");
+		assertEquals(2.0, rect1.getP1().x,0.001);
+		assertEquals(2.0, rect1.getP1().y,0.001);
+		assertEquals(4.0, rect1.getP2().x,0.001);
+		assertEquals(7.0, rect1.getP2().y,0.001);
 		assertEquals(10.0, rect1.getArea(),0.001);
 		assertEquals(6.0, rect2.getArea(),0.001);
 	}
