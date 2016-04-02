@@ -40,6 +40,8 @@ public class Rectangle {
 	 * @return the diagonal
 	 */
 	public Double getDiagonal() {
-		return Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2));
+		Double diagonal;
+		diagonal = Math.sqrt(Math.pow(xLength, 2) + Math.pow(yLength, 2));
+		return diagonal;
 	}
 }
