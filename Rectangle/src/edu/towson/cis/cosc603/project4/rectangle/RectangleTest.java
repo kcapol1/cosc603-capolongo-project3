@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package edu.towson.cis.cosc603.project4.rectangle;
 
 import static org.junit.Assert.*;
@@ -16,6 +19,8 @@ public class RectangleTest {
 	
 	/**  Declaring necessary test objects for {@link Rectangle}. */
 	static Rectangle rect1;
+	
+	/** The rect2. */
 	static Rectangle rect2;
 
 	/**
