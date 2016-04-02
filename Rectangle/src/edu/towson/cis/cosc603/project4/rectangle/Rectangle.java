@@ -6,11 +6,17 @@ package edu.towson.cis.cosc603.project4.rectangle;
  */
 public class Rectangle {
 	
+	/** The p1. */
+	private Point p1;
+	
 	/** The p2. */
-	private Point p1, p2;
+	private Point p2;
+	
+	/** The x length. */
+	private Double xLength;
 	
 	/** The y length. */
-	private Double xLength, yLength;
+	private Double yLength;
 	
 	
 	/**
@@ -25,9 +31,9 @@ public class Rectangle {
 	}
 	
 	/**
-	 * Caclulate lengths.
+	 * Calculate lengths.
 	 */
-	private void caclulateLengths() {
+	private void calculateLengths() {
 		if((p1!=null) && (p2!=null)) {
 			xLength = Math.abs(p2.x - p1.x);
 			yLength = Math.abs(p2.y - p1.y);	
@@ -50,7 +56,7 @@ public class Rectangle {
 	 */
 	public void setP1(Point p) {
 		this.p1 = p;
-		this.caclulateLengths();
+		this.calculateLengths();
 	}
 
 	/**
@@ -69,7 +75,7 @@ public class Rectangle {
 	 */
 	public void setP2(Point p) {
 		this.p2 = p;
-		this.caclulateLengths();
+		this.calculateLengths();
 	}
 
 	/**
