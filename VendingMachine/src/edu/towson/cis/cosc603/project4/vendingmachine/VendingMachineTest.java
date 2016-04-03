@@ -14,7 +14,7 @@ import org.junit.Test;
 public class VendingMachineTest {
 
 	/**  Declaring necessary test objects for {@link VendingMachine}. */
-	static VendingMachine vendingMachine1;
+	static VendingMachine vendingMachine1; // empty vending machine
 	static VendingMachine vendingMachine2;
 	static VendingMachine vendingMachine3;
 	static VendingMachine vendingMachine4;
@@ -229,36 +229,36 @@ public class VendingMachineTest {
 	public void testRemoveItemC() {
         System.out.println("testRemoveItemC");
 		try { // try removing item from slot A
-	        vendingMachine7.removeItem("A");
+	        vendingMachine1.removeItem("A");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot A is empty -- cannot remove item", e.getMessage());
 		}
 
 		try { // try removing item from slot B
-	        vendingMachine7.removeItem("B");
+	        vendingMachine1.removeItem("B");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot B is empty -- cannot remove item", e.getMessage());
 		}
 		
 		try { // try removing item from slot C
-	        vendingMachine7.removeItem("C");
+	        vendingMachine1.removeItem("C");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot C is empty -- cannot remove item", e.getMessage());
 		}
 		
 		try { // try removing item from slot D
-	        vendingMachine7.removeItem("D");
+	        vendingMachine1.removeItem("D");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot D is empty -- cannot remove item", e.getMessage());
 		}
-		assertNull(vendingMachine7.getItem("A"));
-		assertNull(vendingMachine7.getItem("B"));
-		assertNull(vendingMachine7.getItem("C"));
-		assertNull(vendingMachine7.getItem("D"));
+		assertNull(vendingMachine1.getItem("A"));
+		assertNull(vendingMachine1.getItem("B"));
+		assertNull(vendingMachine1.getItem("C"));
+		assertNull(vendingMachine1.getItem("D"));
 	}
 	
 	/**
