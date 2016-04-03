@@ -16,11 +16,11 @@ public class VendingMachineTest {
 	/**  Declaring necessary test objects for {@link VendingMachine}. */
 	static VendingMachine vendingMachine1; // empty vending machine
 	static VendingMachine vendingMachine2; // object to test addItem method
-	static VendingMachine vendingMachine3;
-	static VendingMachine vendingMachine4;
-	static VendingMachine vendingMachine5; // object to test balance
-	static VendingMachine vendingMachine6;
-	static VendingMachine vendingMachine7; // object to test makePurchase method
+	static VendingMachine vendingMachine3; // object to test removeItem method
+	static VendingMachine vendingMachine4; // object to test insertMoney method
+	static VendingMachine vendingMachine5; // object to test getBalance method
+	static VendingMachine vendingMachine6; // object to test makePurchase method
+	static VendingMachine vendingMachine7; // object to test 
 
 	/**
 	 * Initializes the necessary test objects for the test cases to use.
@@ -177,30 +177,30 @@ public class VendingMachineTest {
         System.out.println("testRemoveItemA");
 
         try { // try removing item from slot E
-	        vendingMachine1.removeItem("E");
+	        vendingMachine3.removeItem("E");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
         
 		try { // try removing item from slot P
-	        vendingMachine1.removeItem("P");
+	        vendingMachine3.removeItem("P");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 
 		try { // try removing item from slot Z
-	        vendingMachine1.removeItem("Z");
+	        vendingMachine3.removeItem("Z");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 
-		assertNull(vendingMachine1.getItem("A"));
-		assertNull(vendingMachine1.getItem("B"));
-		assertNull(vendingMachine1.getItem("C"));
-		assertNull(vendingMachine1.getItem("D"));
+		assertNull(vendingMachine3.getItem("A"));
+		assertNull(vendingMachine3.getItem("B"));
+		assertNull(vendingMachine3.getItem("C"));
+		assertNull(vendingMachine3.getItem("D"));
 	}
 	
 	/**
@@ -210,21 +210,21 @@ public class VendingMachineTest {
 	@Test
 	public void testRemoveItemB() {
         System.out.println("testRemoveItemB");
-        vendingMachine6.addItem(new VendingMachineItem("Snickers",1.50), "A");
-        vendingMachine6.removeItem("A");
-        assertNull(vendingMachine6.getItem("A"));
+        vendingMachine3.addItem(new VendingMachineItem("Snickers",1.50), "A");
+        vendingMachine3.removeItem("A");
+        assertNull(vendingMachine3.getItem("A"));
  
-		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-        vendingMachine6.removeItem("B");
-        assertNull(vendingMachine6.getItem("B"));
+		vendingMachine3.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+        vendingMachine3.removeItem("B");
+        assertNull(vendingMachine3.getItem("B"));
 
-		vendingMachine6.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-        vendingMachine6.removeItem("C");
-        assertNull(vendingMachine6.getItem("C"));
+		vendingMachine3.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+        vendingMachine3.removeItem("C");
+        assertNull(vendingMachine3.getItem("C"));
 
-		vendingMachine6.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
-        vendingMachine6.removeItem("D");
-        assertNull(vendingMachine6.getItem("D"));
+		vendingMachine3.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+        vendingMachine3.removeItem("D");
+        assertNull(vendingMachine3.getItem("D"));
 	}
 	
 	/**
@@ -235,36 +235,36 @@ public class VendingMachineTest {
 	public void testRemoveItemC() {
         System.out.println("testRemoveItemC");
 		try { // try removing item from slot A
-	        vendingMachine1.removeItem("A");
+	        vendingMachine3.removeItem("A");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot A is empty -- cannot remove item", e.getMessage());
 		}
 
 		try { // try removing item from slot B
-	        vendingMachine1.removeItem("B");
+	        vendingMachine3.removeItem("B");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot B is empty -- cannot remove item", e.getMessage());
 		}
 		
 		try { // try removing item from slot C
-	        vendingMachine1.removeItem("C");
+	        vendingMachine3.removeItem("C");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot C is empty -- cannot remove item", e.getMessage());
 		}
 		
 		try { // try removing item from slot D
-	        vendingMachine1.removeItem("D");
+	        vendingMachine3.removeItem("D");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot D is empty -- cannot remove item", e.getMessage());
 		}
-		assertNull(vendingMachine1.getItem("A"));
-		assertNull(vendingMachine1.getItem("B"));
-		assertNull(vendingMachine1.getItem("C"));
-		assertNull(vendingMachine1.getItem("D"));
+		assertNull(vendingMachine3.getItem("A"));
+		assertNull(vendingMachine3.getItem("B"));
+		assertNull(vendingMachine3.getItem("C"));
+		assertNull(vendingMachine3.getItem("D"));
 	}
 	
 	/**
@@ -274,19 +274,19 @@ public class VendingMachineTest {
 	@Test
 	public void testInsertMoneyA() {
         System.out.println("testInsertMoneyA");
-        Double currentBalance = vendingMachine5.balance;
-        vendingMachine5.insertMoney(1.00);
+        Double currentBalance = vendingMachine4.balance;
+        vendingMachine4.insertMoney(1.00);
         currentBalance += 1.00;
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
-		vendingMachine5.insertMoney(0.00);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
+		vendingMachine4.insertMoney(0.00);
 		currentBalance += 0.00;
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
-		vendingMachine5.insertMoney(0.25);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
+		vendingMachine4.insertMoney(0.25);
 		currentBalance += 0.25;
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
-		vendingMachine5.insertMoney(0.75);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
+		vendingMachine4.insertMoney(0.75);
 		currentBalance += 0.75;
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
 	}
 	
 	
@@ -297,38 +297,38 @@ public class VendingMachineTest {
 	@Test
 	public void testInsertMoneyB() {
         System.out.println("testInsertMoneyB");
-        Double currentBalance = vendingMachine5.balance;
+        Double currentBalance = vendingMachine4.balance;
         try {
-        	vendingMachine5.insertMoney(-1.00);
+        	vendingMachine4.insertMoney(-1.00);
         } catch  (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
         }
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
 
-		vendingMachine5.insertMoney(1.00);
+		vendingMachine4.insertMoney(1.00);
         currentBalance += 1.00;
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
 
         try {
-        	vendingMachine5.insertMoney(-0.25);
+        	vendingMachine4.insertMoney(-0.25);
         } catch  (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
         }
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
 
-		vendingMachine5.insertMoney(1.00);
+		vendingMachine4.insertMoney(1.00);
         currentBalance += 1.00;
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
 
         try {
-        	vendingMachine5.insertMoney(-0.75);
+        	vendingMachine4.insertMoney(-0.75);
         } catch  (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
         }
-		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+		assertEquals(currentBalance,vendingMachine4.balance,0.001);
 	}
 	
 	/**
@@ -388,10 +388,10 @@ public class VendingMachineTest {
 	@Test
 	public void testMakePurchaseA() {
         System.out.println("testMakePurchaseA");
-		assertFalse(vendingMachine7.makePurchase("A"));
-		assertFalse(vendingMachine7.makePurchase("B"));
-		assertFalse(vendingMachine7.makePurchase("C"));
-		assertFalse(vendingMachine7.makePurchase("D"));
+		assertFalse(vendingMachine6.makePurchase("A"));
+		assertFalse(vendingMachine6.makePurchase("B"));
+		assertFalse(vendingMachine6.makePurchase("C"));
+		assertFalse(vendingMachine6.makePurchase("D"));
 	}
 	
 	/**
@@ -402,28 +402,28 @@ public class VendingMachineTest {
 	public void testMakePurchaseB() {
         System.out.println("testMakePurchaseB");
 		Double currentBalance;
-		vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
- 		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-		vendingMachine7.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
-		vendingMachine7.insertMoney(5.00);
-		currentBalance = vendingMachine7.getBalance();
-		vendingMachine7.makePurchase("A");
+		vendingMachine6.addItem(new VendingMachineItem("Snickers",1.50), "A");
+ 		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+		vendingMachine6.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+		vendingMachine6.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
+		vendingMachine6.insertMoney(5.00);
+		currentBalance = vendingMachine6.getBalance();
+		vendingMachine6.makePurchase("A");
         currentBalance -= 1.50;		
-		assertNull(vendingMachine7.getItem("A"));
-		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
-		vendingMachine7.makePurchase("C");
+		assertNull(vendingMachine6.getItem("A"));
+		assertEquals(currentBalance,vendingMachine6.getBalance(),0.001);
+		vendingMachine6.makePurchase("C");
         currentBalance -= 1.00;		
-		assertNull(vendingMachine7.getItem("C"));
-		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
-		vendingMachine7.makePurchase("B");
+		assertNull(vendingMachine6.getItem("C"));
+		assertEquals(currentBalance,vendingMachine6.getBalance(),0.001);
+		vendingMachine6.makePurchase("B");
         currentBalance -= 1.25;		
-		assertNull(vendingMachine7.getItem("B"));
-		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
-		vendingMachine7.makePurchase("D");
+		assertNull(vendingMachine6.getItem("B"));
+		assertEquals(currentBalance,vendingMachine6.getBalance(),0.001);
+		vendingMachine6.makePurchase("D");
         currentBalance -= 1.25;		
-		assertNull(vendingMachine7.getItem("D"));
-		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);	
+		assertNull(vendingMachine6.getItem("D"));
+		assertEquals(currentBalance,vendingMachine6.getBalance(),0.001);	
 	}
 	
 	/**
@@ -433,16 +433,16 @@ public class VendingMachineTest {
 	@Test
 	public void testMakePurchaseC() {
         System.out.println("testMakePurchaseC");
-        vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
- 		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-		vendingMachine7.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
-		assertFalse(vendingMachine7.makePurchase("A"));
-		vendingMachine7.insertMoney(0.25);
-		assertFalse(vendingMachine7.makePurchase("B"));
-		vendingMachine7.insertMoney(0.5);
-		assertFalse(vendingMachine7.makePurchase("C"));
-		assertFalse(vendingMachine7.makePurchase("D"));
+        vendingMachine6.addItem(new VendingMachineItem("Snickers",1.50), "A");
+ 		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+		vendingMachine6.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+		vendingMachine6.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
+		assertFalse(vendingMachine6.makePurchase("A"));
+		vendingMachine6.insertMoney(0.25);
+		assertFalse(vendingMachine6.makePurchase("B"));
+		vendingMachine6.insertMoney(0.5);
+		assertFalse(vendingMachine6.makePurchase("C"));
+		assertFalse(vendingMachine6.makePurchase("D"));
 	}
 	
 	/**
@@ -453,21 +453,21 @@ public class VendingMachineTest {
 	public void testMakePurchaseD() {
         System.out.println("testMakePurchaseD");
         try {
-        	vendingMachine7.makePurchase("E");
+        	vendingMachine6.makePurchase("E");
         } catch  (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
         }
         
         try {
-        	vendingMachine7.makePurchase("P");
+        	vendingMachine6.makePurchase("P");
         } catch  (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
         }
         
         try {
-        	vendingMachine7.makePurchase("Z");
+        	vendingMachine6.makePurchase("Z");
         } catch  (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
