@@ -469,12 +469,20 @@ public class VendingMachineTest {
  		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
 		vendingMachine6.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
 		vendingMachine6.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
+        VendingMachineItem itemA = vendingMachine6.getItem("A");
+        VendingMachineItem itemB = vendingMachine6.getItem("B");
+        VendingMachineItem itemC = vendingMachine6.getItem("C");
+        VendingMachineItem itemD = vendingMachine6.getItem("D");
 		assertFalse(vendingMachine6.makePurchase("A"));
+        assertSame(itemA, vendingMachine6.removeItem("A"));
 		vendingMachine6.insertMoney(0.25);
 		assertFalse(vendingMachine6.makePurchase("B"));
+        assertSame(itemB, vendingMachine6.removeItem("B"));
 		vendingMachine6.insertMoney(0.5);
 		assertFalse(vendingMachine6.makePurchase("C"));
+        assertSame(itemC, vendingMachine6.removeItem("C"));
 		assertFalse(vendingMachine6.makePurchase("D"));
+        assertSame(itemD, vendingMachine6.removeItem("D"));
 	}
 	
 	/**
