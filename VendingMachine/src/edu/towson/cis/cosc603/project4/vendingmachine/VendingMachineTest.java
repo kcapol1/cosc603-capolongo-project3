@@ -389,8 +389,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the makePurchase() method of the {@link VendingMachine} class.
-	 * Test the amount of the item is subtracted from the balance
-	 * and the item slot is empty with normal input values.
+	 * Test making a purchase for an item with sufficient balance.
 	 */
 	@Test
 	public void testMakePurchaseB() {
