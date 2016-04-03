@@ -26,41 +26,54 @@ public class VendingMachineTest {
         System.out.println("setUp");
         vendingMachine = new VendingMachine();
 		// normal expected input
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "A");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "A");
 		// zero price input
-        vendingMachine.addItem(new VendingMachineItem("Baby Ruth",0.00), "A");
+//        vendingMachine.addItem(new VendingMachineItem("Baby Ruth",0.00), "A");
 		
         // negative price input
-		try {
-	        vendingMachine.addItem(new VendingMachineItem("York Peppermint Patty",-1.00), "A");
-		} catch (VendingMachineException e) {
+//		try {
+//	        vendingMachine.addItem(new VendingMachineItem("York Peppermint Patty",-1.00), "A");
+//		} catch (VendingMachineException e) {
 			// test exception error message
-			assertEquals("", e.getMessage());
+//			assertEquals("", e.getMessage());
 //			assertEquals("Price cannot be less than zero", e.getMessage());
-	    }
+//	    }
 
         // zero length name
-        vendingMachine.addItem(new VendingMachineItem("",1.00), "A");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
-        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
+//        vendingMachine.addItem(new VendingMachineItem("",1.00), "A");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
+//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
         // invalid slot code input
-		try {
-	        vendingMachine.addItem(new VendingMachineItem("Salted Peanuts",1.00), "E");
-		} catch (VendingMachineException e) {
+//		try {
+//	        vendingMachine.addItem(new VendingMachineItem("Salted Peanuts",1.00), "E");
+//		} catch (VendingMachineException e) {
 			// test exception error message
-			assertEquals("", e.getMessage());
+//			assertEquals("", e.getMessage());
 //			assertEquals("Invalid code for vending machine item", e.getMessage());
-	    }
+//	    }
+	}
+	
+	/**
+	 * Test for the addItem() method of the {@link VendingMachine} class.
+	 * Test normal expected input
+	 */
+	@Test
+	public void testAddItemA() {
+        System.out.println("testAddItemA");
+        vendingMachine.addItem(new VendingMachineItem("Snickers",1.50), "A");
+        vendingMachine.addItem(new VendingMachineItem("York Peppermint Patty",1.50), "B");
+        vendingMachine.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+        vendingMachine.addItem(new VendingMachineItem("Baby Ruth",1.00), "D");
 	}
 	
 	/**
