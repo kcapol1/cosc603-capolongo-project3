@@ -110,6 +110,9 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Slot A already occupied", e.getMessage());
 		}
+		assertSame(itemA,vendingMachine2.getItem("A"));
+        assertEquals("Snickers",vendingMachine2.getItem("A").getName());
+		assertEquals(1.50,vendingMachine2.getItem("A").getPrice(),0.001);
 
 		try { // try inserting in slot B
 			vendingMachine2.addItem(new VendingMachineItem("Fith Avenue",1.00), "B");
@@ -117,6 +120,9 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Slot B already occupied", e.getMessage());
 		}
+		assertSame(itemB,vendingMachine2.getItem("B"));
+		assertEquals("York Peppermint Patty",vendingMachine2.getItem("B").getName());
+		assertEquals(1.25,vendingMachine2.getItem("B").getPrice(),0.001);
 
 		try { // try inserting in slot C
 			vendingMachine2.addItem(new VendingMachineItem("Fith Avenue",1.00), "C");
@@ -124,6 +130,9 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Slot C already occupied", e.getMessage());
 		}
+		assertSame(itemC,vendingMachine2.getItem("C"));
+		assertEquals("Butterfinger",vendingMachine2.getItem("C").getName());
+		assertEquals(1.00,vendingMachine2.getItem("C").getPrice(),0.001);
 
 		try { // try inserting in slot D
 			vendingMachine2.addItem(new VendingMachineItem("Fith Avenue",1.00), "D");
@@ -131,10 +140,9 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Slot D already occupied", e.getMessage());
 		}
-		assertSame(itemA,vendingMachine2.getItem("A"));
-		assertSame(itemB,vendingMachine2.getItem("B"));
-		assertSame(itemC,vendingMachine2.getItem("C"));
 		assertSame(itemD,vendingMachine2.getItem("D"));
+		assertEquals("Baby Ruth",vendingMachine2.getItem("D").getName());
+		assertEquals(0.75,vendingMachine2.getItem("D").getPrice(),0.001);
 	}
 	
 	/**
