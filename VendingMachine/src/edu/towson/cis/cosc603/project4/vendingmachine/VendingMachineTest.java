@@ -38,6 +38,19 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the addItem() method of the {@link VendingMachine} class.
+	 * Test constructor postcondition: all entries in itemArray are null, balance set to be 0
+	 */
+	@Test
+	public void testVendingMachine() {
+		assertNull(vendingMachine.getItem("A"));
+		assertNull(vendingMachine.getItem("B"));
+		assertNull(vendingMachine.getItem("C"));
+		assertNull(vendingMachine.getItem("D"));
+		assertEquals(0,vendingMachine.balance,0.001);
+	}
+	
+	/**
+	 * Test for the addItem() method of the {@link VendingMachine} class.
 	 * Test normal expected input
 	 */
 	@Test
@@ -51,7 +64,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the addItem() method of the {@link VendingMachine} class.
-	 * Test add item to an occupied slot.	 * 
+	 * Test add item to an occupied slot.	 
 	 */
 	@Test
 	public void testAddItemB() {
@@ -81,6 +94,41 @@ public class VendingMachineTest {
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot D already occupied", e.getMessage());
+		}
+	}
+	
+	/**
+	 * Test for the addItem() method of the {@link VendingMachine} class.
+	 * Test add item to a slot with an invalid code.	 * 
+	 */
+	@Test
+	public void testAddItemC() {
+        System.out.println("testAddItemC");
+		try { // try inserting in slot A
+			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "E");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+		}
+		
+		try { // try inserting in slot B
+			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "K");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+		}
+		
+		try { // try inserting in slot C
+			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "P");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+		}
+		try { // try inserting in slot D
+			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "Z");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 	}
 	
