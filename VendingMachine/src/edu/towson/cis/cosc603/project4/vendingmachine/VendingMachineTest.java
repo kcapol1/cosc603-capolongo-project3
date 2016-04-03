@@ -19,6 +19,7 @@ public class VendingMachineTest {
 	static VendingMachine vendingMachine3;
 	static VendingMachine vendingMachine4;
 	static VendingMachine vendingMachine5;
+	static VendingMachine vendingMachine6;
 
 	/**
 	 * Initializes the necessary test objects for the test cases to use.
@@ -33,6 +34,7 @@ public class VendingMachineTest {
         vendingMachine3 = new VendingMachine();
         vendingMachine4 = new VendingMachine();
         vendingMachine5 = new VendingMachine();
+        vendingMachine6 = new VendingMachine();
 	}
 	
 	/**
@@ -196,19 +198,25 @@ public class VendingMachineTest {
 	/**
 	 * Test for the removeItem() method of the {@link VendingMachine} class.
 	 * Remove items from occupied slots with expected input.
-	 * 
 	 */
 	@Test
 	public void testRemoveItemB() {
         System.out.println("testRemoveItemB");
-//        vendingMachine.removeItem("A");
-//        assertNull(vendingMachine.getItem("A"));
-//        vendingMachine.removeItem("B");
-//        assertNull(vendingMachine.getItem("B"));
-//        vendingMachine.removeItem("C");
-//        assertNull(vendingMachine.getItem("C"));
-//        vendingMachine.removeItem("D");
-//       assertNull(vendingMachine.getItem("D"));
+        vendingMachine6.addItem(new VendingMachineItem("Snickers",1.50), "A");
+        vendingMachine6.removeItem("A");
+        assertNull(vendingMachine6.getItem("A"));
+ 
+		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+        vendingMachine6.removeItem("B");
+        assertNull(vendingMachine6.getItem("B"));
+
+		vendingMachine6.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+        vendingMachine6.removeItem("C");
+        assertNull(vendingMachine6.getItem("C"));
+
+		vendingMachine6.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+        vendingMachine6.removeItem("D");
+        assertNull(vendingMachine6.getItem("D"));
 	}
 	
 	/**
@@ -252,5 +260,6 @@ public class VendingMachineTest {
         vendingMachine3 = null;
         vendingMachine4 = null;
         vendingMachine5 = null;
+        vendingMachine6 = null;
 	}
 }
