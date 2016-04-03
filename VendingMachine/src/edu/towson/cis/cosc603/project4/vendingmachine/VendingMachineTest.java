@@ -84,7 +84,12 @@ public class VendingMachineTest {
 	@Test
 	public void testAddItemB() {
         System.out.println("testAddItemB");
-		try { // try inserting in slot A
+        VendingMachineItem itemA = vendingMachine2.getItem("A");
+        VendingMachineItem itemB = vendingMachine2.getItem("B");
+        VendingMachineItem itemC = vendingMachine2.getItem("C");
+        VendingMachineItem itemD = vendingMachine2.getItem("D");
+        
+        try { // try inserting in slot A
 			vendingMachine2.addItem(new VendingMachineItem("Fith Avenue",1.00), "A");
 		} catch (VendingMachineException e) {
 			// test exception error message
@@ -111,10 +116,10 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Slot D already occupied", e.getMessage());
 		}
-		assertNotNull(vendingMachine2.getItem("A"));
-		assertNotNull(vendingMachine2.getItem("B"));
-		assertNotNull(vendingMachine2.getItem("C"));
-		assertNotNull(vendingMachine2.getItem("D"));
+		assertSame(itemA,vendingMachine2.getItem("A"));
+		assertSame(itemB,vendingMachine2.getItem("B"));
+		assertSame(itemC,vendingMachine2.getItem("C"));
+		assertSame(itemD,vendingMachine2.getItem("D"));
 	}
 	
 	/**
