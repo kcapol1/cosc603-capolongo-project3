@@ -63,19 +63,20 @@ public class VendingMachineTest {
 			assertEquals("Slot A already occupied", e.getMessage());
 		}
 		
-		try { // try inserting in slot C
+		try { // try inserting in slot B
 			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "B");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot B already occupied", e.getMessage());
 		}
+		
 		try { // try inserting in slot C
 			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "C");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot C already occupied", e.getMessage());
 		}
-		try { // try inserting in slot C
+		try { // try inserting in slot D
 			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "D");
 		} catch (VendingMachineException e) {
 			// test exception error message
