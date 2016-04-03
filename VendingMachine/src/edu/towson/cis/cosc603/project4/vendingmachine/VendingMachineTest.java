@@ -417,7 +417,7 @@ public class VendingMachineTest {
 	@Test
 	public void testGetBalanceA() {
         System.out.println("testGetBalanceA");
-        Double currentBalance = vendingMachine5.balance;
+        Double currentBalance = vendingMachine5.getBalance();
 
         vendingMachine5.insertMoney(0.00);
 		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
@@ -438,7 +438,7 @@ public class VendingMachineTest {
 	@Test
 	public void testGetBalanceB() {
         System.out.println("testGetBalanceB");
-        Double currentBalance = vendingMachine5.balance;
+        Double currentBalance = vendingMachine5.getBalance();
 
         try {
         	vendingMachine5.insertMoney(-0.75);
