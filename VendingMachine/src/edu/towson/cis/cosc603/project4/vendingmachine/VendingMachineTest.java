@@ -25,34 +25,7 @@ public class VendingMachineTest {
 	public static void setUp() throws Exception {
         System.out.println("setUp");
         vendingMachine = new VendingMachine();
-		// normal expected input
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "A");
-		// zero price input
-//        vendingMachine.addItem(new VendingMachineItem("Baby Ruth",0.00), "A");
-		
-        // negative price input
-//		try {
-//	        vendingMachine.addItem(new VendingMachineItem("York Peppermint Patty",-1.00), "A");
-//		} catch (VendingMachineException e) {
-			// test exception error message
-//			assertEquals("", e.getMessage());
-//			assertEquals("Price cannot be less than zero", e.getMessage());
-//	    }
 
-        // zero length name
-//        vendingMachine.addItem(new VendingMachineItem("",1.00), "A");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "B");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "C");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
-//        vendingMachine.addItem(new VendingMachineItem("Snickers",1.00), "D");
         // invalid slot code input
 //		try {
 //	        vendingMachine.addItem(new VendingMachineItem("Salted Peanuts",1.00), "E");
@@ -74,6 +47,28 @@ public class VendingMachineTest {
         vendingMachine.addItem(new VendingMachineItem("York Peppermint Patty",1.50), "B");
         vendingMachine.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
         vendingMachine.addItem(new VendingMachineItem("Baby Ruth",1.00), "D");
+	}
+	
+	/**
+	 * Test for the addItem() method of the {@link VendingMachine} class.
+	 * Test add item to an occupied slot.	 * 
+	 */
+	@Test
+	public void testAddItemB() {
+        System.out.println("testAddItemB");
+		try { // try inserting in slot A
+			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "A");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Slot A already occupied", e.getMessage());
+		}
+		
+		try { // try inserting in slot C
+			vendingMachine.addItem(new VendingMachineItem("Fith Avenue",1.00), "C");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Slot C already occupied", e.getMessage());
+		}
 	}
 	
 	/**
