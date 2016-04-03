@@ -163,38 +163,37 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the removeItem() method of the {@link VendingMachine} class.
-	 * Remove items from slots with invalid codes.
+	 * Remove items from empty vending machine with invalid codes.
 	 */
 	@Test
 	public void testRemoveItemA() {
         System.out.println("testRemoveItemA");
-		vendingMachine5.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-		vendingMachine5.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
 
-		try { // try removing item from slot E
-	        vendingMachine5.removeItem("E");
+        try { // try removing item from slot E
+	        vendingMachine1.removeItem("E");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
         
 		try { // try removing item from slot P
-	        vendingMachine5.removeItem("P");
+	        vendingMachine1.removeItem("P");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 
 		try { // try removing item from slot Z
-	        vendingMachine5.removeItem("Z");
+	        vendingMachine1.removeItem("Z");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
-		assertNull(vendingMachine5.getItem("A"));
-		assertNotNull(vendingMachine5.getItem("B"));
-		assertNull(vendingMachine5.getItem("C"));
-		assertNotNull(vendingMachine5.getItem("D"));
+
+		assertNull(vendingMachine1.getItem("A"));
+		assertNull(vendingMachine1.getItem("B"));
+		assertNull(vendingMachine1.getItem("C"));
+		assertNull(vendingMachine1.getItem("D"));
 	}
 	
 	/**
