@@ -61,20 +61,35 @@ public class VendingMachineTest {
 	public void testAddItemA() {
         System.out.println("testAddItemA");
         vendingMachine2.addItem(new VendingMachineItem("Snickers",1.50), "A");
-		assertEquals("Snickers",vendingMachine2.getItem("A").getName());
-		assertEquals(1.50,vendingMachine2.getItem("A").getPrice(),0.001);
- 
 		vendingMachine2.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+		vendingMachine2.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+		vendingMachine2.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+
+		VendingMachineItem itemA = vendingMachine2.getItem("A");
+        VendingMachineItem itemB = vendingMachine2.getItem("B");
+        VendingMachineItem itemC = vendingMachine2.getItem("C");
+        VendingMachineItem itemD = vendingMachine2.getItem("D");
+
+		assertSame(itemA,vendingMachine2.getItem("A"));
+        assertEquals("Snickers",vendingMachine2.getItem("A").getName());
+		assertEquals(1.50,vendingMachine2.getItem("A").getPrice(),0.001);
+
+		assertSame(itemB,vendingMachine2.getItem("B"));
 		assertEquals("York Peppermint Patty",vendingMachine2.getItem("B").getName());
 		assertEquals(1.25,vendingMachine2.getItem("B").getPrice(),0.001);
 
-		vendingMachine2.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+		assertSame(itemC,vendingMachine2.getItem("C"));
 		assertEquals("Butterfinger",vendingMachine2.getItem("C").getName());
 		assertEquals(1.00,vendingMachine2.getItem("C").getPrice(),0.001);
 
-		vendingMachine2.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+		assertSame(itemD,vendingMachine2.getItem("D"));
 		assertEquals("Baby Ruth",vendingMachine2.getItem("D").getName());
 		assertEquals(0.75,vendingMachine2.getItem("D").getPrice(),0.001);
+
+		itemA = null;
+		itemB = null;
+		itemC = null;
+		itemD = null;		
 	}
 	
 	/**
