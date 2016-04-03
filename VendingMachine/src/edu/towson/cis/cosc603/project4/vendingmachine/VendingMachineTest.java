@@ -382,13 +382,9 @@ public class VendingMachineTest {
 	public void testMakePurchaseA() {
         System.out.println("testMakePurchaseA");
 		assertFalse(vendingMachine7.makePurchase("A"));
-		assertNull(vendingMachine7.getItem("A"));
 		assertFalse(vendingMachine7.makePurchase("B"));
-		assertNull(vendingMachine7.getItem("B"));
 		assertFalse(vendingMachine7.makePurchase("C"));
-		assertNull(vendingMachine7.getItem("C"));
 		assertFalse(vendingMachine7.makePurchase("D"));
-		assertNull(vendingMachine7.getItem("D"));
 	}
 	
 	/**
