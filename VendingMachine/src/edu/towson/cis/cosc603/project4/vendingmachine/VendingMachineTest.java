@@ -228,30 +228,46 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the removeItem() method of the {@link VendingMachine} class.
-	 * Remove items from occupied slots with expected input.
+	 * Remove items from occupied slots with invalid codes.
 	 */
 	@Test
 	public void testRemoveItemB() {
         System.out.println("testRemoveItemB");
         vendingMachine3.addItem(new VendingMachineItem("Snickers",1.50), "A");
-        VendingMachineItem itemA = vendingMachine3.getItem("A");
-        assertSame(itemA, vendingMachine3.removeItem("A"));
-        assertNull(vendingMachine3.getItem("A"));
- 
 		vendingMachine3.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-        VendingMachineItem itemB = vendingMachine3.getItem("B");
-        assertSame(itemB, vendingMachine3.removeItem("B"));
-        assertNull(vendingMachine3.getItem("B"));
-
 		vendingMachine3.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-        VendingMachineItem itemC = vendingMachine3.getItem("C");
-        assertSame(itemC, vendingMachine3.removeItem("C"));
-        assertNull(vendingMachine3.getItem("C"));
-
 		vendingMachine3.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+ 
+		VendingMachineItem itemA = vendingMachine3.getItem("A");
+        VendingMachineItem itemB = vendingMachine3.getItem("B");
+        VendingMachineItem itemC = vendingMachine3.getItem("C");
         VendingMachineItem itemD = vendingMachine3.getItem("D");
-        assertSame(itemD, vendingMachine3.removeItem("D"));
-        assertNull(vendingMachine3.getItem("D"));
+
+        try { // try removing item from slot E
+	        vendingMachine3.removeItem("E");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+		}
+
+		try { // try removing item from slot P
+	        vendingMachine3.removeItem("P");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+		}
+
+		try { // try removing item from slot Z
+	        vendingMachine3.removeItem("Z");
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+		}
+
+		assertSame(itemA, vendingMachine3.getItem("A"));
+        assertSame(itemB, vendingMachine3.getItem("B"));
+        assertSame(itemC, vendingMachine3.getItem("C"));
+        assertSame(itemD, vendingMachine3.getItem("D"));
         
 		itemA = null;
 		itemB = null;
@@ -261,11 +277,42 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the removeItem() method of the {@link VendingMachine} class.
-	 * Remove items from empty vending machine with valid codes.
+	 * Remove items from occupied slots with valid codes.
 	 */
 	@Test
 	public void testRemoveItemC() {
         System.out.println("testRemoveItemC");
+
+        VendingMachineItem itemA = vendingMachine3.getItem("A");
+        assertSame(itemA, vendingMachine3.removeItem("A"));
+        assertNull(vendingMachine3.getItem("A"));
+ 
+        VendingMachineItem itemB = vendingMachine3.getItem("B");
+        assertSame(itemB, vendingMachine3.removeItem("B"));
+        assertNull(vendingMachine3.getItem("B"));
+
+        VendingMachineItem itemC = vendingMachine3.getItem("C");
+        assertSame(itemC, vendingMachine3.removeItem("C"));
+        assertNull(vendingMachine3.getItem("C"));
+
+        VendingMachineItem itemD = vendingMachine3.getItem("D");
+        assertSame(itemD, vendingMachine3.removeItem("D"));
+        assertNull(vendingMachine3.getItem("D"));
+        
+		itemA = null;
+		itemB = null;
+		itemC = null;
+		itemD = null;		        
+	}
+
+	
+	/**
+	 * Test for the removeItem() method of the {@link VendingMachine} class.
+	 * Remove items from empty vending machine with valid codes.
+	 */
+	@Test
+	public void testRemoveItemD() {
+        System.out.println("testRemoveItemD");
 		try { // try removing item from slot A
 	        vendingMachine3.removeItem("A");
 		} catch (VendingMachineException e) {
