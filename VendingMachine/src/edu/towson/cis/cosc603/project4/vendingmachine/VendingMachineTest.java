@@ -124,28 +124,28 @@ public class VendingMachineTest {
         vendingMachine4.addItem(new VendingMachineItem("Snickers",1.50), "A");
 		vendingMachine4.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
 
-		try { // try inserting in slot A
+		try { // try inserting in slot E
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "E");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 		
-		try { // try inserting in slot B
+		try { // try inserting in slot K
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "K");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 		
-		try { // try inserting in slot C
+		try { // try inserting in slot P
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "P");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 		
-		try { // try inserting in slot D
+		try { // try inserting in slot Z
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "Z");
 		} catch (VendingMachineException e) {
 			// test exception error message
