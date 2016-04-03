@@ -261,18 +261,21 @@ public class VendingMachineTest {
 	}
 	
 	/**
-	 * Test for the removeItem() method of the {@link VendingMachine} class.
-	 * Remove items from empty slots with invalid codes.
+	 * Test for the insertMoney() method of the {@link VendingMachine} class.
+	 * Function to put money into the vending machine.  
+	 * Test balance with normal input.
 	 */
 	@Test
-	public void testRemoveItemD() {
-        System.out.println("testRemoveItemD");
-		try { // try removing item from slot E
-//	        vendingMachine.removeItem("E");
-		} catch (VendingMachineException e) {
-			// test exception error message
-			assertEquals("Invalid code for vending machine item", e.getMessage());
-		}
+	public void testInsertMoneyA() {
+        System.out.println("testInsertMoneyA");
+        vendingMachine5.insertMoney(1.00);
+		assertEquals(1.00,vendingMachine5.balance,0.001);
+		vendingMachine5.insertMoney(1.00);
+		assertEquals(2.00,vendingMachine5.balance,0.001);
+		vendingMachine5.insertMoney(0.25);
+		assertEquals(2.25,vendingMachine5.balance,0.001);
+		vendingMachine5.insertMoney(0.75);
+		assertEquals(3.00,vendingMachine5.balance,0.001);
 	}
 	
 	/**
