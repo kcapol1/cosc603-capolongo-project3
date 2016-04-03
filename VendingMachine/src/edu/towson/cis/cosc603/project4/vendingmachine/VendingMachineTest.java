@@ -20,7 +20,7 @@ public class VendingMachineTest {
 	static VendingMachine vendingMachine4; // object to test insertMoney method
 	static VendingMachine vendingMachine5; // object to test getBalance method
 	static VendingMachine vendingMachine6; // object to test makePurchase method
-	static VendingMachine vendingMachine7; // object to test 
+	static VendingMachine vendingMachine7; // object to test returnChange method
 
 	/**
 	 * Initializes the necessary test objects for the test cases to use.
@@ -477,12 +477,47 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the returnChange() method of the {@link VendingMachine} class.
-	 * Test making a purchase for an item with invalid slot code.
+	 * Test return change without making purchases.
 	 */
 	@Test
 	public void testReturnChangeA() {
         System.out.println("testReturnChangeA");
-
+        Double currentBalance = 0.00;
+        vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
+ 		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+		vendingMachine7.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
+        vendingMachine7.insertMoney(0.75);
+        currentBalance += 0.75;
+		vendingMachine7.insertMoney(1.00);
+        currentBalance += 1.00;
+		vendingMachine7.insertMoney(0.50);
+        currentBalance += 0.50;
+		vendingMachine7.insertMoney(0.25);
+        currentBalance += 0.25;
+		assertEquals(currentBalance,vendingMachine7.returnChange(),0.001);	
+		assertEquals(0,vendingMachine7.getBalance(),0.001);	
+	}
+	
+	/**
+	 * Test for the returnChange() method of the {@link VendingMachine} class.
+	 * Test return change with making purchases.
+	 */
+	@Test
+	public void testReturnChangeB() {
+        System.out.println("testReturnChangeB");
+        vendingMachine7.insertMoney(5.75);
+        Double currentBalance = vendingMachine7.getBalance();
+        vendingMachine7.makePurchase("A");
+        currentBalance -= 1.50;
+        vendingMachine7.makePurchase("B");
+        currentBalance -= 1.25;
+        vendingMachine7.makePurchase("C");
+        currentBalance -= 1.00;
+        vendingMachine7.makePurchase("D");
+        currentBalance -= 1.25;
+		assertEquals(currentBalance,vendingMachine7.returnChange(),0.001);	
+		assertEquals(0,vendingMachine7.getBalance(),0.001);
 	}
 	
 	/**
