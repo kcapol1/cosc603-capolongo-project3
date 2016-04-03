@@ -108,6 +108,10 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Slot D already occupied", e.getMessage());
 		}
+		assertNotNull(vendingMachine3.getItem("A"));
+		assertNotNull(vendingMachine3.getItem("B"));
+		assertNotNull(vendingMachine3.getItem("C"));
+		assertNotNull(vendingMachine3.getItem("D"));
 	}
 	
 	/**
