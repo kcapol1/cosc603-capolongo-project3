@@ -268,19 +268,19 @@ public class VendingMachineTest {
 	@Test
 	public void testInsertMoneyA() {
         System.out.println("testInsertMoneyA");
-        Double tempBalance = vendingMachine5.balance;
+        Double currentBalance = vendingMachine5.balance;
         vendingMachine5.insertMoney(1.00);
-        tempBalance += 1.00;
-		assertEquals(tempBalance,vendingMachine5.balance,0.001);
+        currentBalance += 1.00;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(1.00);
-        tempBalance += 1.00;
-		assertEquals(tempBalance,vendingMachine5.balance,0.001);
+		currentBalance += 1.00;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(0.25);
-        tempBalance += 0.25;
-		assertEquals(tempBalance,vendingMachine5.balance,0.001);
+		currentBalance += 0.25;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(0.75);
-        tempBalance += 0.75;
-		assertEquals(tempBalance,vendingMachine5.balance,0.001);
+		currentBalance += 0.75;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 	}
 	
 	/**
