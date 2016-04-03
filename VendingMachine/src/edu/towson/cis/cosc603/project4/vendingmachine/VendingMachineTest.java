@@ -342,7 +342,36 @@ public class VendingMachineTest {
         currentBalance += 0.75;
 		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
 	}
-	
+
+	/**
+	 * Test for the getBalance() method of the {@link VendingMachine} class.
+	 * Test balance with negative input values.
+	 */
+	@Test
+	public void testGetBalanceB() {
+        System.out.println("testGetBalanceB");
+        Double currentBalance = vendingMachine5.balance;
+
+        try {
+        	vendingMachine5.insertMoney(-0.75);
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
+        }
+		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
+
+		vendingMachine5.insertMoney(0.75);
+        currentBalance += 0.75;
+
+        try {
+        	vendingMachine5.insertMoney(-1.75);
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
+        }
+		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
+	}
+
 	/**
 	 * Cleans up test objects after a test case is executed.
 	 */
