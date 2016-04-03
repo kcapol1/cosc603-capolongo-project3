@@ -33,6 +33,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testVendingMachine() {
+        System.out.println("testVendingMachine");
 		assertNull(vendingMachine.getItem("A"));
 		assertNull(vendingMachine.getItem("B"));
 		assertNull(vendingMachine.getItem("C"));
