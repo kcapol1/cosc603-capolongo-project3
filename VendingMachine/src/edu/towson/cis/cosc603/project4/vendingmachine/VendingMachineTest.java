@@ -386,7 +386,7 @@ public class VendingMachineTest {
 		vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
  		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
 		vendingMachine7.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
 		vendingMachine7.insertMoney(5.00);
 		currentBalance = vendingMachine7.getBalance();
 		assertTrue(vendingMachine7.makePurchase("A"));
@@ -402,7 +402,7 @@ public class VendingMachineTest {
 		assertNull(vendingMachine7.getItem("B"));
 		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
 		assertTrue(vendingMachine7.makePurchase("D"));
-        currentBalance -= 0.75;		
+        currentBalance -= 1.25;		
 		assertNull(vendingMachine7.getItem("D"));
 		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);	
 	}
@@ -446,13 +446,17 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testMakePurchaseC() {
-        System.out.println("testMakePurchaseB");
-		Double currentBalance = vendingMachine7.getBalance();
-		vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
+        System.out.println("testMakePurchaseC");
+        vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
  		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
 		vendingMachine7.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
-
+		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
+		assertFalse(vendingMachine7.makePurchase("A"));
+		vendingMachine7.insertMoney(0.25);
+		assertFalse(vendingMachine7.makePurchase("B"));
+		vendingMachine7.insertMoney(0.5);
+		assertFalse(vendingMachine7.makePurchase("C"));
+		assertFalse(vendingMachine7.makePurchase("D"));
 	}
 	
 	/**
