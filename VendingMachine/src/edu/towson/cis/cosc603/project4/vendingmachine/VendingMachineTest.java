@@ -130,7 +130,12 @@ public class VendingMachineTest {
 	public void testAddItemC() {
         System.out.println("testAddItemC");
 
-		try { // try inserting in slot E
+        VendingMachineItem itemA = vendingMachine2.getItem("A");
+        VendingMachineItem itemB = vendingMachine2.getItem("B");
+        VendingMachineItem itemC = vendingMachine2.getItem("C");
+        VendingMachineItem itemD = vendingMachine2.getItem("D");
+
+        try { // try inserting in slot E
 			vendingMachine2.addItem(new VendingMachineItem("Fith Avenue",1.00), "E");
 		} catch (VendingMachineException e) {
 			// test exception error message
@@ -157,10 +162,10 @@ public class VendingMachineTest {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
-		assertNotNull(vendingMachine2.getItem("A"));
-		assertNotNull(vendingMachine2.getItem("B"));
-		assertNotNull(vendingMachine2.getItem("C"));
-		assertNotNull(vendingMachine2.getItem("D"));
+		assertSame(itemA,vendingMachine2.getItem("A"));
+		assertSame(itemB,vendingMachine2.getItem("B"));
+		assertSame(itemC,vendingMachine2.getItem("C"));
+		assertSame(itemD,vendingMachine2.getItem("D"));
 	}
 	
 	/**
