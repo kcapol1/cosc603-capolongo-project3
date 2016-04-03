@@ -31,10 +31,6 @@ public class VendingMachineTest {
         vendingMachine1 = new VendingMachine();
         vendingMachine2 = new VendingMachine();
         vendingMachine3 = new VendingMachine();
-        vendingMachine3.addItem(new VendingMachineItem("Pretzels",0.750), "A");
-        vendingMachine3.addItem(new VendingMachineItem("Peanuts",0.750), "B");
-        vendingMachine3.addItem(new VendingMachineItem("Granola Bar",1.00), "C");
-        vendingMachine3.addItem(new VendingMachineItem("Rasins",0.75), "D");
 	}
 	
 	/**
@@ -82,26 +78,28 @@ public class VendingMachineTest {
 	@Test
 	public void testAddItemB() {
         System.out.println("testAddItemB");
+        vendingMachine3.addItem(new VendingMachineItem("Pretzels",0.750), "A");
 		try { // try inserting in slot A
 			vendingMachine3.addItem(new VendingMachineItem("Fith Avenue",1.00), "A");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot A already occupied", e.getMessage());
 		}
-		
+        vendingMachine3.addItem(new VendingMachineItem("Peanuts",0.750), "B");
 		try { // try inserting in slot B
 			vendingMachine3.addItem(new VendingMachineItem("Fith Avenue",1.00), "B");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot B already occupied", e.getMessage());
 		}
-		
+        vendingMachine3.addItem(new VendingMachineItem("Granola Bar",1.00), "C");
 		try { // try inserting in slot C
 			vendingMachine3.addItem(new VendingMachineItem("Fith Avenue",1.00), "C");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Slot C already occupied", e.getMessage());
 		}
+		vendingMachine3.addItem(new VendingMachineItem("Rasins",0.75), "D");
 		try { // try inserting in slot D
 			vendingMachine3.addItem(new VendingMachineItem("Fith Avenue",1.00), "D");
 		} catch (VendingMachineException e) {
@@ -224,5 +222,7 @@ public class VendingMachineTest {
         vendingMachine1 = null;
         vendingMachine2 = null;
         vendingMachine3 = null;
+        vendingMachine4 = null;
+        vendingMachine5 = null;
 	}
 }
