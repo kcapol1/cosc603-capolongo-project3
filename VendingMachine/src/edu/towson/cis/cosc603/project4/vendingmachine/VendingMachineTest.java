@@ -234,20 +234,29 @@ public class VendingMachineTest {
 	public void testRemoveItemB() {
         System.out.println("testRemoveItemB");
         vendingMachine3.addItem(new VendingMachineItem("Snickers",1.50), "A");
-        vendingMachine3.removeItem("A");
+        VendingMachineItem itemA = vendingMachine3.getItem("A");
+        assertSame(itemA, vendingMachine3.removeItem("A"));
         assertNull(vendingMachine3.getItem("A"));
  
 		vendingMachine3.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-        vendingMachine3.removeItem("B");
+        VendingMachineItem itemB = vendingMachine3.getItem("B");
+        assertSame(itemB, vendingMachine3.removeItem("B"));
         assertNull(vendingMachine3.getItem("B"));
 
 		vendingMachine3.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-        vendingMachine3.removeItem("C");
+        VendingMachineItem itemC = vendingMachine3.getItem("C");
+        assertSame(itemC, vendingMachine3.removeItem("C"));
         assertNull(vendingMachine3.getItem("C"));
 
 		vendingMachine3.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
-        vendingMachine3.removeItem("D");
+        VendingMachineItem itemD = vendingMachine3.getItem("D");
+        assertSame(itemD, vendingMachine3.removeItem("D"));
         assertNull(vendingMachine3.getItem("D"));
+        
+		itemA = null;
+		itemB = null;
+		itemC = null;
+		itemD = null;		        
 	}
 	
 	/**
