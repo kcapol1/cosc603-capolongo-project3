@@ -262,7 +262,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the insertMoney() method of the {@link VendingMachine} class.
-	 * Test balance with normal input.
+	 * Test balance with normal input values.
 	 */
 	@Test
 	public void testInsertMoneyA() {
@@ -322,6 +322,25 @@ public class VendingMachineTest {
 			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
         }
 		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+	}
+	
+	/**
+	 * Test for the getBalance() method of the {@link VendingMachine} class.
+	 * Test balance with normal input values.
+	 */
+	@Test
+	public void testGetBalanceA() {
+        System.out.println("testGetBalanceA");
+        Double currentBalance = vendingMachine5.balance;
+		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
+
+		vendingMachine5.insertMoney(1.00);
+        currentBalance += 1.00;
+		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
+
+		vendingMachine5.insertMoney(0.75);
+        currentBalance += 0.75;
+		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
 	}
 	
 	/**
