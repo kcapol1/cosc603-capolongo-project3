@@ -25,15 +25,6 @@ public class VendingMachineTest {
 	public static void setUp() throws Exception {
         System.out.println("setUp");
         vendingMachine = new VendingMachine();
-
-        // invalid slot code input
-//		try {
-//	        vendingMachine.addItem(new VendingMachineItem("Salted Peanuts",1.00), "E");
-//		} catch (VendingMachineException e) {
-			// test exception error message
-//			assertEquals("", e.getMessage());
-//			assertEquals("Invalid code for vending machine item", e.getMessage());
-//	    }
 	}
 	
 	/**
@@ -51,7 +42,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the addItem() method of the {@link VendingMachine} class.
-	 * Test normal expected input
+	 * Add items with normal input.
 	 */
 	@Test
 	public void testAddItemA() {
@@ -64,7 +55,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the addItem() method of the {@link VendingMachine} class.
-	 * Test add item to an occupied slot.	 
+	 * Add an item to a slot that is already occupied. 
 	 */
 	@Test
 	public void testAddItemB() {
@@ -99,7 +90,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the addItem() method of the {@link VendingMachine} class.
-	 * Test add item to a slot with an invalid code.	 * 
+	 * Add an item with an invalid code.
 	 */
 	@Test
 	public void testAddItemC() {
