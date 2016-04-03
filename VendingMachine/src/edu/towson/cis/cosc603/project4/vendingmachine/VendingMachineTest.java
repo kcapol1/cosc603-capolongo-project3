@@ -18,7 +18,7 @@ public class VendingMachineTest {
 	static VendingMachine vendingMachine2;
 	static VendingMachine vendingMachine3;
 	static VendingMachine vendingMachine4;
-	static VendingMachine vendingMachine5;
+	static VendingMachine vendingMachine5; // object to test balance
 	static VendingMachine vendingMachine6;
 	static VendingMachine vendingMachine7;
 
@@ -268,14 +268,19 @@ public class VendingMachineTest {
 	@Test
 	public void testInsertMoneyA() {
         System.out.println("testInsertMoneyA");
+        Double tempBalance = vendingMachine5.balance;
         vendingMachine5.insertMoney(1.00);
-		assertEquals(1.00,vendingMachine5.balance,0.001);
+        tempBalance += 1.00;
+		assertEquals(tempBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(1.00);
-		assertEquals(2.00,vendingMachine5.balance,0.001);
+        tempBalance += 1.00;
+		assertEquals(tempBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(0.25);
-		assertEquals(2.25,vendingMachine5.balance,0.001);
+        tempBalance += 0.25;
+		assertEquals(tempBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(0.75);
-		assertEquals(3.00,vendingMachine5.balance,0.001);
+        tempBalance += 0.75;
+		assertEquals(tempBalance,vendingMachine5.balance,0.001);
 	}
 	
 	/**
