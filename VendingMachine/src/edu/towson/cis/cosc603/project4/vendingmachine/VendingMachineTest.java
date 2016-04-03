@@ -20,7 +20,7 @@ public class VendingMachineTest {
 	static VendingMachine vendingMachine4;
 	static VendingMachine vendingMachine5; // object to test balance
 	static VendingMachine vendingMachine6;
-	static VendingMachine vendingMachine7;
+	static VendingMachine vendingMachine7; // object to test makePurchase
 
 	/**
 	 * Initializes the necessary test objects for the test cases to use.
@@ -374,6 +374,40 @@ public class VendingMachineTest {
 		assertEquals(currentBalance,vendingMachine5.getBalance(),0.001);
 	}
 
+
+	/**
+	 * Test for the makePurchase() method of the {@link VendingMachine} class.
+	 * Test the amount of the item is subtracted from the balance
+	 * and the item slot is empty with normal input values.
+	 */
+	@Test
+	public void testMakePurchaseA() {
+        System.out.println("testMakePurchaseA");
+		Double currentBalance;
+		vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
+ 		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
+		vendingMachine7.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+		vendingMachine7.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+		vendingMachine7.insertMoney(5.00);
+		currentBalance = vendingMachine7.getBalance();
+		vendingMachine7.makePurchase("A");
+        currentBalance -= 1.50;		
+		assertNull(vendingMachine7.getItem("A"));
+		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
+		vendingMachine7.makePurchase("C");
+        currentBalance -= 1.00;		
+		assertNull(vendingMachine7.getItem("C"));
+		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
+		vendingMachine7.makePurchase("B");
+        currentBalance -= 1.25;		
+		assertNull(vendingMachine7.getItem("B"));
+		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);
+		vendingMachine7.makePurchase("D");
+        currentBalance -= 0.75;		
+		assertNull(vendingMachine7.getItem("D"));
+		assertEquals(currentBalance,vendingMachine7.getBalance(),0.001);	
+	}
+	
 	/**
 	 * Cleans up test objects after a test case is executed.
 	 */
