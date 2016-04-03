@@ -444,6 +444,35 @@ public class VendingMachineTest {
 	}
 	
 	/**
+	 * Test for the makePurchase() method of the {@link VendingMachine} class.
+	 * Test making a purchase for an item with invalid slot code.
+	 */
+	@Test
+	public void testMakePurchaseD() {
+        System.out.println("testMakePurchaseD");
+        try {
+        	vendingMachine7.makePurchase("E");
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+        }
+        
+        try {
+        	vendingMachine7.makePurchase("P");
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+        }
+        
+        try {
+        	vendingMachine7.makePurchase("Z");
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid code for vending machine item", e.getMessage());
+        }
+	}
+	
+	/**
 	 * Cleans up test objects after a test case is executed.
 	 */
 	@AfterClass
