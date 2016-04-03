@@ -262,7 +262,6 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the insertMoney() method of the {@link VendingMachine} class.
-	 * Function to put money into the vending machine.  
 	 * Test balance with normal input.
 	 */
 	@Test
@@ -272,14 +271,56 @@ public class VendingMachineTest {
         vendingMachine5.insertMoney(1.00);
         currentBalance += 1.00;
 		assertEquals(currentBalance,vendingMachine5.balance,0.001);
-		vendingMachine5.insertMoney(1.00);
-		currentBalance += 1.00;
+		vendingMachine5.insertMoney(0.00);
+		currentBalance += 0.00;
 		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(0.25);
 		currentBalance += 0.25;
 		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 		vendingMachine5.insertMoney(0.75);
 		currentBalance += 0.75;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+	}
+	
+	
+	/**
+	 * Test for the insertMoney() method of the {@link VendingMachine} class.
+	 * Test balance with negative input values.
+	 */
+	@Test
+	public void testInsertMoneyB() {
+        System.out.println("testInsertMoneyB");
+        Double currentBalance = vendingMachine5.balance;
+        try {
+        	vendingMachine5.insertMoney(-1.00);
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
+        }
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+
+		vendingMachine5.insertMoney(1.00);
+        currentBalance += 1.00;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+
+        try {
+        	vendingMachine5.insertMoney(-0.25);
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
+        }
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+
+		vendingMachine5.insertMoney(1.00);
+        currentBalance += 1.00;
+		assertEquals(currentBalance,vendingMachine5.balance,0.001);
+
+        try {
+        	vendingMachine5.insertMoney(-0.75);
+        } catch  (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Invalid amount.  Amount must be >= 0", e.getMessage());
+        }
 		assertEquals(currentBalance,vendingMachine5.balance,0.001);
 	}
 	
