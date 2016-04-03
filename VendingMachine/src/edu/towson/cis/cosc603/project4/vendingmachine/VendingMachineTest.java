@@ -159,7 +159,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the removeItem() method of the {@link VendingMachine} class.
-	 * Remove items from occupied slots with invalid codes.
+	 * Remove items from unoccupied and occupied slots with invalid codes.
 	 */
 	@Test
 	public void testRemoveItemA() {
