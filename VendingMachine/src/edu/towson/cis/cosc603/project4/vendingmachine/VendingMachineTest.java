@@ -117,7 +117,9 @@ public class VendingMachineTest {
 	@Test
 	public void testAddItemC() {
         System.out.println("testAddItemC");
-        vendingMachine4.addItem(new VendingMachineItem("Pretzels",0.75), "A");
+        vendingMachine4.addItem(new VendingMachineItem("Snickers",1.50), "A");
+		vendingMachine4.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
+
 		try { // try inserting in slot A
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "E");
 		} catch (VendingMachineException e) {
@@ -125,7 +127,6 @@ public class VendingMachineTest {
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 		
-        vendingMachine4.addItem(new VendingMachineItem("Peanuts",1.00), "B");
 		try { // try inserting in slot B
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "K");
 		} catch (VendingMachineException e) {
@@ -133,7 +134,6 @@ public class VendingMachineTest {
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 		
-        vendingMachine4.addItem(new VendingMachineItem("Granola Bar",1.25), "C");
 		try { // try inserting in slot C
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "P");
 		} catch (VendingMachineException e) {
@@ -141,13 +141,16 @@ public class VendingMachineTest {
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
 		
-		vendingMachine4.addItem(new VendingMachineItem("Rasins",0.50), "D");
 		try { // try inserting in slot D
 			vendingMachine4.addItem(new VendingMachineItem("Fith Avenue",1.00), "Z");
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Invalid code for vending machine item", e.getMessage());
 		}
+		assertNotNull(vendingMachine4.getItem("A"));
+		assertNull(vendingMachine4.getItem("B"));
+		assertNotNull(vendingMachine4.getItem("C"));
+		assertNull(vendingMachine4.getItem("D"));
 	}
 	
 	/**
