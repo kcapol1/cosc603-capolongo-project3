@@ -222,7 +222,7 @@ public class VendingMachineTest {
 	
 	/**
 	 * Test for the removeItem() method of the {@link VendingMachine} class.
-	 * Remove items from empty slots.
+	 * Remove items from empty vending machine with valid codes.
 	 */
 	@Test
 	public void testRemoveItemC() {
