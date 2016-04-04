@@ -29,8 +29,23 @@ public class VendingMachineItemTest {
 	public static void setUp() throws Exception {
         System.out.println("setUp");
 		item1 = new VendingMachineItem("Snickers", 1.00);
-		item2 = new VendingMachineItem("", 1.00);
-		item3 = new VendingMachineItem("Baby Ruth", 0.00);
+		item2 = new VendingMachineItem("Baby Ruth", 0.00);
+	}
+
+	/**
+	 * Test for the VendingMachineItem() constructor of the {@link VendingMachineItem} class.
+	 * Test for empty name input.
+	 */
+	@Test
+	public void testVendingMachineItemA() {
+		System.out.println("testVendingMachineItemA");
+		try {
+	    	item3 = new VendingMachineItem("", 1.00);
+		} catch (VendingMachineException e) {
+			// test exception error message
+			assertEquals("Name cannot be empty", e.getMessage());
+		}
+		assertNull(item3);
 	}
 
 	/**
@@ -38,8 +53,8 @@ public class VendingMachineItemTest {
 	 * Test for negative price input.
 	 */
 	@Test
-	public void testVendingMachineItem() {
-		System.out.println("testVendingMachineItem");
+	public void testVendingMachineItemB() {
+		System.out.println("testVendingMachineItemB");
 		try {
 	    	item4 = new VendingMachineItem("York Peppermint Patty", -1.00);
 		} catch (VendingMachineException e) {
@@ -54,23 +69,13 @@ public class VendingMachineItemTest {
 	 * Test normal input.
 	 */
 	@Test
-	public void testGetNameA() {
-        System.out.println("testGetNameA");
+	public void testGetName() {
+        System.out.println("testGetName");
 		assertEquals("Snickers", item1.getName());
-		assertEquals("Baby Ruth", item3.getName());
+		assertEquals("Baby Ruth", item2.getName());
 	}
 	
 	
-	/**
-	 * Test for the getName() method of the {@link VendingMachineItem} class.
-	 * Test zero (0) length name input.
-	 */
-	@Test
-	public void testGetNameB() {
-        System.out.println("testGetNameB");
-		assertEquals("", item2.getName());
-	}
-
 	/**
 	 * Test for the getPrice() method of the {@link VendingMachineItem} class.
 	 * Test normal input.
@@ -79,7 +84,6 @@ public class VendingMachineItemTest {
 	public void testGetPriceA() {
         System.out.println("testGetPriceA");
 		assertEquals(1.00, item1.getPrice(),0.001);
-		assertEquals(1.00, item2.getPrice(),0.001);
 	}
 	
 	/**
@@ -89,7 +93,7 @@ public class VendingMachineItemTest {
 	@Test
 	public void testGetPriceB() {
         System.out.println("testGetPriceB");
-		assertEquals(0.00, item3.getPrice(),0.001);
+		assertEquals(0.00, item2.getPrice(),0.001);
 	}
 	
 	/**

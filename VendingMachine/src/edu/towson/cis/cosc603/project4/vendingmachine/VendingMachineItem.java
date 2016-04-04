@@ -14,6 +14,9 @@ public class VendingMachineItem {
 	// Exception message for when the price is less than zero
 	private final static String PRICE_LESS_THAN_ZERO_MESSAGE = "Price cannot be less than zero";
 	
+	// Exception message for when the name is zero length
+	private final static String NAME_EMPTY_MESSAGE = "Name cannot be empty";
+
 	/**
 	 * Constructor which fills in the name and price of the item
 	 * Precondition: price argument >= 0
@@ -23,7 +26,12 @@ public class VendingMachineItem {
 	 * @throws VendingMachineException Thrown if price is less than zero
 	 */
 	public VendingMachineItem( String name, double price ) throws VendingMachineException {
-		this.name = name;
+		if( name.isEmpty()) {
+			throw new VendingMachineException(NAME_EMPTY_MESSAGE);
+		} else {
+			this.name = name;
+		}
+
 		if( price < 0 ) {
 			throw new VendingMachineException(PRICE_LESS_THAN_ZERO_MESSAGE);
 		} else {
