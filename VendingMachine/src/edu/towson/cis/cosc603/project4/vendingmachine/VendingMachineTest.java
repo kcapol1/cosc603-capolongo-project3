@@ -60,15 +60,15 @@ public class VendingMachineTest {
 	@Test
 	public void testAddItemA() {
         System.out.println("testAddItemA");
-        vendingMachine2.addItem(new VendingMachineItem("Snickers",1.50), "A");
-		vendingMachine2.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
-		vendingMachine2.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-		vendingMachine2.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+		VendingMachineItem itemA = new VendingMachineItem("Snickers",1.50);
+        VendingMachineItem itemB = new VendingMachineItem("York Peppermint Patty",1.25);
+        VendingMachineItem itemC = new VendingMachineItem("Butterfinger",1.00);
+        VendingMachineItem itemD = new VendingMachineItem("Baby Ruth",1.25);
 
-		VendingMachineItem itemA = vendingMachine2.getItem("A");
-        VendingMachineItem itemB = vendingMachine2.getItem("B");
-        VendingMachineItem itemC = vendingMachine2.getItem("C");
-        VendingMachineItem itemD = vendingMachine2.getItem("D");
+        vendingMachine2.addItem(itemA, "A");
+		vendingMachine2.addItem(itemB, "B");
+		vendingMachine2.addItem(itemC, "C");
+		vendingMachine2.addItem(itemD, "D");
 
 		assertSame(itemA,vendingMachine2.getItem("A"));
         assertEquals("Snickers",vendingMachine2.getItem("A").getName());
@@ -84,7 +84,7 @@ public class VendingMachineTest {
 
 		assertSame(itemD,vendingMachine2.getItem("D"));
 		assertEquals("Baby Ruth",vendingMachine2.getItem("D").getName());
-		assertEquals(0.75,vendingMachine2.getItem("D").getPrice(),0.001);
+		assertEquals(1.25,vendingMachine2.getItem("D").getPrice(),0.001);
 
 		itemA = null;
 		itemB = null;
@@ -142,7 +142,7 @@ public class VendingMachineTest {
 		}
 		assertSame(itemD,vendingMachine2.getItem("D"));
 		assertEquals("Baby Ruth",vendingMachine2.getItem("D").getName());
-		assertEquals(0.75,vendingMachine2.getItem("D").getPrice(),0.001);
+		assertEquals(1.25,vendingMachine2.getItem("D").getPrice(),0.001);
 	}
 	
 	/**
@@ -236,7 +236,7 @@ public class VendingMachineTest {
         vendingMachine3.addItem(new VendingMachineItem("Snickers",1.50), "A");
 		vendingMachine3.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
 		vendingMachine3.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
-		vendingMachine3.addItem(new VendingMachineItem("Baby Ruth",0.75), "D");
+		vendingMachine3.addItem(new VendingMachineItem("Baby Ruth",1.25), "D");
  
 		VendingMachineItem itemA = vendingMachine3.getItem("A");
         VendingMachineItem itemB = vendingMachine3.getItem("B");
