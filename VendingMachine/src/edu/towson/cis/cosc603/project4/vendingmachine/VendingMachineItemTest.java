@@ -22,53 +22,74 @@ public class VendingMachineItemTest {
 
 	/**
 	 * Initializes the necessary test objects for the test cases to use.
-	 * Test normal expected input.
-	 * Test zero item price input.
-	 * Test negative item price input.
-	 * Test zero length item name input.
 	 * 
 	 * @throws Exception the exception
 	 */
 	@BeforeClass
 	public static void setUp() throws Exception {
         System.out.println("setUp");
-		// normal expected input
 		item1 = new VendingMachineItem("Snickers", 1.00);
-		// zero price input
-		item2 = new VendingMachineItem("Baby Ruth", 0.00);
-		// negative price input
+		item2 = new VendingMachineItem("", 1.00);
+		item3 = new VendingMachineItem("Baby Ruth", 0.00);
+	}
+
+	/**
+	 * Test for the VendingMachineItem() constructor of the {@link VendingMachineItem} class.
+	 * Test for negative price input.
+	 */
+	@Test
+	public void testVendingMachineItem() {
+		System.out.println("testVendingMachineItem");
 		try {
-			item3 = new VendingMachineItem("York Peppermint Patty", -1.00);
+	    	item4 = new VendingMachineItem("York Peppermint Patty", -1.00);
 		} catch (VendingMachineException e) {
 			// test exception error message
 			assertEquals("Price cannot be less than zero", e.getMessage());
-	    }
-		// zero length name
-		item4 = new VendingMachineItem("", 1.00);
+		}
+		assertNull(item4);
 	}
 	
 	/**
 	 * Test for the getName() method of the {@link VendingMachineItem} class.
+	 * Test normal input.
 	 */
 	@Test
-	public void testGetName() {
-        System.out.println("testGetName");
+	public void testGetNameA() {
+        System.out.println("testGetNameA");
 		assertEquals("Snickers", item1.getName());
-		assertEquals("Baby Ruth", item2.getName());
-		assertNull(item3);
-		assertEquals("", item4.getName());
+		assertEquals("Baby Ruth", item3.getName());
+	}
+	
+	
+	/**
+	 * Test for the getName() method of the {@link VendingMachineItem} class.
+	 * Test zero (0) length name input.
+	 */
+	@Test
+	public void testGetNameB() {
+        System.out.println("testGetNameB");
+		assertEquals("", item2.getName());
+	}
+
+	/**
+	 * Test for the getPrice() method of the {@link VendingMachineItem} class.
+	 * Test normal input.
+	 */
+	@Test
+	public void testGetPriceA() {
+        System.out.println("testGetPriceA");
+		assertEquals(1.00, item1.getPrice(),0.001);
+		assertEquals(1.00, item2.getPrice(),0.001);
 	}
 	
 	/**
 	 * Test for the getPrice() method of the {@link VendingMachineItem} class.
+	 * Test zero (0) price input.
 	 */
 	@Test
-	public void testGetPrice() {
-        System.out.println("testGetPrice");
-		assertEquals(1.00, item1.getPrice(),0.001);
-		assertEquals(0.00, item2.getPrice(),0.001);
-		assertNull(item3);
-		assertEquals(1.00, item4.getPrice(),0.001);
+	public void testGetPriceB() {
+        System.out.println("testGetPriceB");
+		assertEquals(0.00, item3.getPrice(),0.001);
 	}
 	
 	/**
