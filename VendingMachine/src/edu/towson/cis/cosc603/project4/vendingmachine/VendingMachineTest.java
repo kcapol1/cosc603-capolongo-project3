@@ -29,7 +29,7 @@ public class VendingMachineTest {
 	 */
 	@BeforeClass
 	public static void setUp() throws Exception {
-        System.out.println("setUp");
+//        System.out.println("setUp");
         vendingMachine1 = new VendingMachine();
         vendingMachine2 = new VendingMachine();
         vendingMachine3 = new VendingMachine();
@@ -45,7 +45,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testVendingMachine() {
-        System.out.println("testVendingMachine");
+//        System.out.println("testVendingMachine");
 		assertNull(vendingMachine1.getItem("A"));
 		assertNull(vendingMachine1.getItem("B"));
 		assertNull(vendingMachine1.getItem("C"));
@@ -59,7 +59,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testAddItemA() {
-        System.out.println("testAddItemA");
+//        System.out.println("testAddItemA");
 		VendingMachineItem itemA = new VendingMachineItem("Snickers",1.50);
         VendingMachineItem itemB = new VendingMachineItem("York Peppermint Patty",1.25);
         VendingMachineItem itemC = new VendingMachineItem("Butterfinger",1.00);
@@ -98,7 +98,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testAddItemB() {
-        System.out.println("testAddItemB");
+//        System.out.println("testAddItemB");
         VendingMachineItem itemA = vendingMachine2.getItem("A");
         VendingMachineItem itemB = vendingMachine2.getItem("B");
         VendingMachineItem itemC = vendingMachine2.getItem("C");
@@ -151,7 +151,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testAddItemC() {
-        System.out.println("testAddItemC");
+//        System.out.println("testAddItemC");
 
         VendingMachineItem itemA = vendingMachine2.getItem("A");
         VendingMachineItem itemB = vendingMachine2.getItem("B");
@@ -197,7 +197,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testRemoveItemA() {
-        System.out.println("testRemoveItemA");
+//        System.out.println("testRemoveItemA");
 
         try { // try removing item from slot E
 	        vendingMachine3.removeItem("E");
@@ -232,7 +232,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testRemoveItemB() {
-        System.out.println("testRemoveItemB");
+//        System.out.println("testRemoveItemB");
         vendingMachine3.addItem(new VendingMachineItem("Snickers",1.50), "A");
 		vendingMachine3.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
 		vendingMachine3.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
@@ -281,7 +281,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testRemoveItemC() {
-        System.out.println("testRemoveItemC");
+//        System.out.println("testRemoveItemC");
 
         VendingMachineItem itemA = vendingMachine3.getItem("A");
         assertSame(itemA, vendingMachine3.removeItem("A"));
@@ -312,7 +312,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testRemoveItemD() {
-        System.out.println("testRemoveItemD");
+//        System.out.println("testRemoveItemD");
 		try { // try removing item from slot A
 	        vendingMachine3.removeItem("A");
 		} catch (VendingMachineException e) {
@@ -352,7 +352,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testInsertMoneyA() {
-        System.out.println("testInsertMoneyA");
+//        System.out.println("testInsertMoneyA");
         Double currentBalance = vendingMachine4.balance;
         vendingMachine4.insertMoney(1.00);
         currentBalance += 1.00;
@@ -375,7 +375,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testInsertMoneyB() {
-        System.out.println("testInsertMoneyB");
+//        System.out.println("testInsertMoneyB");
         Double currentBalance = vendingMachine4.balance;
         try {
         	vendingMachine4.insertMoney(-1.00);
@@ -416,7 +416,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testGetBalanceA() {
-        System.out.println("testGetBalanceA");
+//        System.out.println("testGetBalanceA");
         Double currentBalance = vendingMachine5.getBalance();
 
         vendingMachine5.insertMoney(0.00);
@@ -437,7 +437,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testGetBalanceB() {
-        System.out.println("testGetBalanceB");
+//        System.out.println("testGetBalanceB");
         Double currentBalance = vendingMachine5.getBalance();
 
         try {
@@ -466,7 +466,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testMakePurchaseA() {
-        System.out.println("testMakePurchaseA");
+//        System.out.println("testMakePurchaseA");
 		assertFalse(vendingMachine6.makePurchase("A"));
 		assertFalse(vendingMachine6.makePurchase("B"));
 		assertFalse(vendingMachine6.makePurchase("C"));
@@ -479,7 +479,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testMakePurchaseB() {
-        System.out.println("testMakePurchaseB");
+//        System.out.println("testMakePurchaseB");
 		Double currentBalance;
 		vendingMachine6.addItem(new VendingMachineItem("Snickers",1.50), "A");
  		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
@@ -511,7 +511,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testMakePurchaseC() {
-        System.out.println("testMakePurchaseC");
+//        System.out.println("testMakePurchaseC");
         vendingMachine6.addItem(new VendingMachineItem("Snickers",1.50), "A");
  		vendingMachine6.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
 		vendingMachine6.addItem(new VendingMachineItem("Butterfinger",1.00), "C");
@@ -538,7 +538,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testMakePurchaseD() {
-        System.out.println("testMakePurchaseD");
+//        System.out.println("testMakePurchaseD");
         try {
         	vendingMachine6.makePurchase("E");
         } catch  (VendingMachineException e) {
@@ -568,7 +568,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testReturnChangeA() {
-        System.out.println("testReturnChangeA");
+//        System.out.println("testReturnChangeA");
         Double currentBalance = 0.00;
         vendingMachine7.addItem(new VendingMachineItem("Snickers",1.50), "A");
  		vendingMachine7.addItem(new VendingMachineItem("York Peppermint Patty",1.25), "B");
@@ -592,7 +592,7 @@ public class VendingMachineTest {
 	 */
 	@Test
 	public void testReturnChangeB() {
-        System.out.println("testReturnChangeB");
+//        System.out.println("testReturnChangeB");
         vendingMachine7.insertMoney(5.75);
         Double currentBalance = vendingMachine7.getBalance();
         vendingMachine7.makePurchase("A");
@@ -612,7 +612,7 @@ public class VendingMachineTest {
 	 */
 	@AfterClass
 	public static void tearDown(){
-        System.out.println("tearDown");
+//        System.out.println("tearDown");
         vendingMachine1 = null;
         vendingMachine2 = null;
         vendingMachine3 = null;

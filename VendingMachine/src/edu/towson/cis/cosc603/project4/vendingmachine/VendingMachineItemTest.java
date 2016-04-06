@@ -27,7 +27,7 @@ public class VendingMachineItemTest {
 	 */
 	@BeforeClass
 	public static void setUp() throws Exception {
-        System.out.println("setUp");
+//        System.out.println("setUp");
 		item1 = new VendingMachineItem("Snickers", 1.00);
 		item2 = new VendingMachineItem("Baby Ruth", 0.00);
 	}
@@ -38,7 +38,7 @@ public class VendingMachineItemTest {
 	 */
 	@Test
 	public void testVendingMachineItemA() {
-		System.out.println("testVendingMachineItemA");
+//		System.out.println("testVendingMachineItemA");
 		try {
 	    	item3 = new VendingMachineItem("", 1.00);
 		} catch (VendingMachineException e) {
@@ -54,7 +54,7 @@ public class VendingMachineItemTest {
 	 */
 	@Test
 	public void testVendingMachineItemB() {
-		System.out.println("testVendingMachineItemB");
+//		System.out.println("testVendingMachineItemB");
 		try {
 	    	item4 = new VendingMachineItem("York Peppermint Patty", -1.00);
 		} catch (VendingMachineException e) {
@@ -70,7 +70,7 @@ public class VendingMachineItemTest {
 	 */
 	@Test
 	public void testGetName() {
-        System.out.println("testGetName");
+//        System.out.println("testGetName");
 		assertEquals("Snickers", item1.getName());
 		assertEquals("Baby Ruth", item2.getName());
 	}
@@ -82,7 +82,7 @@ public class VendingMachineItemTest {
 	 */
 	@Test
 	public void testGetPriceA() {
-        System.out.println("testGetPriceA");
+//        System.out.println("testGetPriceA");
 		assertEquals(1.00, item1.getPrice(),0.001);
 	}
 	
@@ -92,7 +92,7 @@ public class VendingMachineItemTest {
 	 */
 	@Test
 	public void testGetPriceB() {
-        System.out.println("testGetPriceB");
+//        System.out.println("testGetPriceB");
 		assertEquals(0.00, item2.getPrice(),0.001);
 	}
 	
@@ -101,7 +101,7 @@ public class VendingMachineItemTest {
 	 */
 	@AfterClass
 	public static void tearDown(){
-        System.out.println("tearDown");
+//        System.out.println("tearDown");
 		item1 = null;
 		item2 = null;
 		item3 = null;
